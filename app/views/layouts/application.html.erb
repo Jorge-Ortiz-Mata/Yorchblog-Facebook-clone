@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yorchblog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <header>
+      <%= render 'shared/header' %>
+    </header>
+    <!-- ------ -->
+
+    <!-- Notice and alert. -->
+    <% if notice %>
+      <%= render 'shared/notice' %>
+    <% elsif alert %>
+      <%= render 'shared/alert' %>
+    <% end %>
+    <!-- ------ -->
+
+    <!-- Pages -->
+    <%= yield %>
+    <!-- ------ -->
+
+    <!-- Footer -->
+    <footer>
+      <%= render 'shared/footer' %>
+    </footer>
+    <!-- ------ -->
+
+  </body>
+</html>
