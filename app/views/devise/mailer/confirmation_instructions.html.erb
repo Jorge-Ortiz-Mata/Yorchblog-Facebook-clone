@@ -1,5 +1,25 @@
-<p>Welcome <%= @email %>!</p>
+<div class="p-10">
+    <p>
+        Welcome <%= @email %>!
+    </p>
+    <p>
+        My name is Jorge Ortiz and I'm so glad that you're part of this community. <br>
+        Feel free to share anything you want in this website. <br>
+        Before to get started, you need to confirm your email first. <br>
+    </p>
+    <p>
+        You can confirm your account email through the link below:
+    </p>
 
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+    <p>
+        <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %>
+    </p>
+    <br><br>
+    <div>
+        <strong>Jorge Ortiz</strong><br>
+        <span>Engineer, teacher and entrepreneur.</span><br>
+        <span>+52 444 576 3034</span><br>
+        <span>San Luis Potosí, México.</span><br>
+        <span>yorch-edu.com, yorch-els.com</span>
+    </div>
+</div>

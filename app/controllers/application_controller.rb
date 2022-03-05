@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
     def require_user
         if !current_user
-            redirect_to new_user_session_path, alert: "You must logged in first."
+            redirect_to new_user_session_path
         end
     end
 
