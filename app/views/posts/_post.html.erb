@@ -1,0 +1,11 @@
+<%= turbo_frame_tag dom_id(post) do %>
+    <div class="bg-cyan-50 mt-5 mb-5 p-5 rounded-lg shadow-lg">
+        <p>
+            <%= link_to "#{post.user.profile.first_name} #{post.user.profile.last_name}", '#', class:"font-bold" %>
+        </p>
+    
+        <p>
+            <%= post.body %>
+        </p>
+    </div>
+<% end %>

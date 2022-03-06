@@ -1,1 +1,69 @@
-<h1>Yorchblog.com</h1>
+<%= turbo_stream_from "posts" %>
+<h1 class="font-bold text-cyan-900 text-4xl text-center p-5">Yorchblog.com</h1><br>
+<div class="flex flex-row justify-center">
+    <div class="ml-0 mr-0 w-1/5 p-10">        
+        <div class="pt-4 pb-2 px-6">
+            <a href="#!">
+            <div class="flex items-center">
+                <div class="shrink-0">
+                <img src="<%= asset_path( 'Jorge.PNG' ) %>" width= "40px" class="rounded-full  m-auto" />
+                </div>
+                <div class="grow ml-3">
+                    <%= link_to "Jorge Ortiz", 'https://www.linkedin.com/in/jorge-ortiz-ab1b18183/', class:"text-cyan-600 font-bold" %>
+                </div>
+            </div>
+            </a>
+        </div>
+        <ul class="relative px-1">
+            <li class="relative">
+            <a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="primary">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-3 h-3 mr-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path>
+                </svg>
+                <span>Non-collapsible link</span>
+            </a>
+            </li>
+        </ul>
+    </div>
+    <div class="w-3/5 flex flex-col">
+        <div>
+            <h3 class="font-medium text-cyan-900 text-2xl text-center">What are you thinking?</h3>
+            <%= turbo_frame_tag "post_form" do %>
+                <%= render "posts/form", post: @post %>
+            <% end %>
+        </div>
+        <br>
+        <div>
+            <h4 class="font-medium text-cyan-900 text-3xl text-center">Posts</h4><br>
+            <div class="flex flex-col">
+                <%= turbo_frame_tag "posts" do %>
+                    <%= render @posts %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="ml-0 mr-0 w-1/5 p-5">
+       <h3 class="font-medium text-cyan-900 text-2xl text-center">Users.</h3><br>
+       <% @profiles.each do |profile| %>
+            <div class="flex flex-row p-2 rounded-lg bg-cyan-50 shadow-lg">
+                <div class="w-2/5 m-auto">
+                    <%= image_tag(profile.avatar, width: 50, class:"rounded-full  m-auto") if profile.avatar.attached? %>
+                    <% if !profile.avatar.attached? %>
+                        <img src="<%= asset_path( 'image-blank.png' ) %>" width= "50px" class="rounded-full  m-auto" />
+                    <% end %>
+                </div>
+                <div class="w-4/5 flex flex-col">
+                    <%= link_to "#{profile.first_name} #{profile.last_name}", profile, class:"font-bold" %>
+                    <span class="text-xs font-bold"><%= profile.occupation %></span>
+                    <p>
+                        <span class="bg-green-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded text-xs">
+                        <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                        <b>Joined: <%= time_ago_in_words(profile.user.created_at) %>.</b>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <br>
+       <% end %>
+    </div>
+</div>
