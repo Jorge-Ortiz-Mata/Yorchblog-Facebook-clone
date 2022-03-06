@@ -32,11 +32,17 @@
   </div>
 
   <div class="mb-3 w-full">
-    <%= form.label "Genre", class:"font-medium text-cyan-900 text-1sxl" %><br><br>
+    <%= form.label "Genre", class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
     <%= form.radio_button :genre, "Male" %>
     <%= form.label :genre, "Male" %> |
     <%= form.radio_button :genre, "Female" %>
     <%= form.label :genre, "Female" %>
+  </div>
+  <br>
+
+  <div class="mb-3 w-full">
+    <%= form.label 'Profile photo', class:"block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" %>
+    <%= form.file_field :avatar, class:"block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" %>
   </div>
   
   <br>
