@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
+
   before_action :set_profile, only: %i[ show edit update destroy ]
+  before_action :require_user
   before_action :user_has_profile, only: [:new, :create]
 
   # GET /profiles/1 or /profiles/1.json
