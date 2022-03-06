@@ -1,11 +1,24 @@
 <%= turbo_frame_tag dom_id(post) do %>
-    <div class="bg-cyan-50 mt-5 mb-5 p-5 rounded-lg shadow-lg">
-        <p>
-            <%= link_to "#{post.user.profile.first_name} #{post.user.profile.last_name}", '#', class:"font-bold" %>
-        </p>
-    
-        <p>
-            <%= post.body %>
-        </p>
+    <div class="bg-cyan-50 mt-5 mb-5 p-5 rounded-lg shadow-lg flex flex-col">
+        <div class="flex flex-row p-2">
+            <div class="mr-5">
+                <%= image_tag(post.user.profile.avatar, width: 50, class:"rounded-full  m-auto") if post.user.profile.avatar.attached? %>
+                <% if !post.user.profile.avatar.attached? %>
+                    <img src="<%= asset_path( 'image-blank.png' ) %>" width= "50px" class="rounded-full  m-auto" />
+                <% end %>
+            </div>
+            <p>
+                <%= link_to "#{post.user.profile.first_name} #{post.user.profile.last_name}", profile_path(post.user.profile), target: :_blank, class:"font-bold" %><br>
+                <span class="text-xs font-bold"><%= post.user.profile.occupation %></span>
+            </p>
+        </div>
+        <div>
+            <p class="text-sm mt-1 mb-1">
+                <b>Created:</b> <%= time_ago_in_words(post.created_at) %>.
+            </p>
+            <p class="text-sm font-bold">
+                <%= post.body %>
+            </p>
+        </div>
     </div>
 <% end %>

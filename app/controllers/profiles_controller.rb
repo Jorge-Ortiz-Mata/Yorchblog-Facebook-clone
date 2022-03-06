@@ -3,9 +3,11 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
   before_action :require_user
   before_action :user_has_profile, only: [:new, :create]
+  before_action :same_user_and_profile, only: [:edit, :update, :destroy]
 
   # GET /profiles/1 or /profiles/1.json
   def show
+    @user_posts = @profile.user.posts
   end
 
   # GET /profiles/new
