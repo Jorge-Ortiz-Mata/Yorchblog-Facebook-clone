@@ -1,9 +1,7 @@
-<h1>Editing profile</h1>
-
-<%= render "form", profile: @profile %>
-
-<br>
-
-<div>
-  <%= link_to "Back", @profile %>
+<h1 class="mt-20 mb-10 font-bold text-cyan-900 text-4xl text-center">Edit profile.</h1>
+<div class="pr-96 pl-96 pb-20">
+  <%= render "form", profile: @profile %>
+  <div class="text-center mt-10">
+    <%= link_to "Back", @profile, class: "text-white hover:text-cyan-900 bg-cyan-700 hover:bg-cyan-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+  </div>
 </div>

@@ -11,42 +11,47 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+  <div class="relative z-0 mb-6 w-full group">
+    <%= form.text_field :first_name, class:"block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+    <%= form.label :first_name, style: "display: block", class:"absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %><br>
   </div>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+  <div class="relative z-0 mb-6 w-full group">
+    <%= form.text_field :last_name, class:"block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+    <%= form.label :last_name, style: "display: block", class:"absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %><br>
   </div>
 
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
+  <div class="relative z-0 mb-6 w-full group">
+    <%= form.text_field :telephone, class:"block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+    <%= form.label :telephone, style: "display: block", class:"absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %><br>
   </div>
 
-  <div>
-    <%= form.label :genre, style: "display: block" %>
-    <%= form.text_field :genre %>
+  <div class="relative z-0 mb-6 w-full group">
+    <%= form.text_field :occupation, class:"block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", placeholder: " " %>
+    <%= form.label :occupation, style: "display: block", class:"absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %><br>
   </div>
 
-  <div>
-    <%= form.label :telephone, style: "display: block" %>
-    <%= form.number_field :telephone %>
+  <div class="mb-3 w-full">
+    <%= form.label "Genre", class:"font-medium text-cyan-900 text-1sxl" %><br><br>
+    <%= form.radio_button :genre, "Male" %>
+    <%= form.label :genre, "Male" %> |
+    <%= form.radio_button :genre, "Female" %>
+    <%= form.label :genre, "Female" %>
+  </div>
+  
+  <br>
+  <div class="mb-3 w-full">
+    <%= form.label :location, style: "display: block", class:"mb-3" %>
+    <%= form.select :location, ["Mexico", "United States", "Brazil", "Argentina", "Chile", "Canada", "Spain", "England", "France"], class: "bg-gray-200 w-full" %>
   </div>
 
-  <div>
-    <%= form.label :date_birth, style: "display: block" %>
+  <div class="mb-3 w-full">
+    <%= form.label :date_birth, style: "display: block", class:"mb-3" %>
     <%= form.date_field :date_birth %>
   </div>
 
-  <div>
-    <%= form.label :occupation, style: "display: block" %>
-    <%= form.text_field :occupation %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <br>
+  <div class="text-center">
+    <%= form.submit class: "inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out" %>
   </div>
 <% end %>
