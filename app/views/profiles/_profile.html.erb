@@ -3,6 +3,9 @@
     <br>
     <div>
       <%= image_tag(profile.avatar, width: 200, class:"rounded-full") if profile.avatar.attached? %>
+      <% if !profile.avatar.attached? %>
+        <img src="<%= asset_path( 'image-blank.png' ) %>" width= "200px" class="rounded-full" />
+      <% end %>
     </div>
     <div class="flex flex-col">
       <div class="flex flex-col justify-between p-4 leading-normal">
@@ -20,7 +23,7 @@
           <p>
             <span class="bg-green-100 text-gray-900 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
             <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-            <b>Joined: </b><%= time_ago_in_words(profile.user.created_at) %>.
+            <b>Joined: <%= time_ago_in_words(profile.user.created_at) %>.</b>
             </span>
           </p>
           <br>
