@@ -5,7 +5,7 @@ class CreateProfiles < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :location
       t.string :genre
-      t.integer :telephone
+      t.string :telephone
       t.date :date_birth
       t.string :occupation
       t.references :user, null: false, foreign_key: true

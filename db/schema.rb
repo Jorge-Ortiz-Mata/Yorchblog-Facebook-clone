@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_04_224616) do
     t.string "last_name"
     t.string "location"
     t.string "genre"
-    t.integer "telephone"
+    t.string "telephone"
     t.date "date_birth"
     t.string "occupation"
     t.integer "user_id", null: false
