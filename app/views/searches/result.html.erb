@@ -12,7 +12,7 @@
         <% @search_result.each do |profile| %>
         <br>
             <div class="flex justify-center">
-                <div class="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+                <div class="flex flex-col md:flex-row rounded-lg bg-white shadow-lg w-96">
                     <%= image_tag(profile.avatar, width: 50, class:"w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg") if profile.avatar.attached? %>
                     <% if !profile.avatar.attached? %>
                         <img src="<%= asset_path( 'image-blank.png' ) %>" width= "50px" class="w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" />
