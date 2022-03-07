@@ -31,9 +31,7 @@
                 <%= render "posts/form", post: @post %>
             <% end %>
         </div>
-        <br>
         <div>
-            <h4 class="font-medium text-cyan-900 text-3xl text-center">Posts</h4><br>
             <div class="flex flex-col">
                 <%= turbo_frame_tag "posts" do %>
                     <%= render @posts %>

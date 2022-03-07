@@ -19,6 +19,13 @@
             <p class="text-sm font-bold">
                 <%= post.body %>
             </p>
+            <% if post.images.attached? %>
+              <div class="flex flex-row justify-center mt-5 mb-5">
+              <% for i in 0...post.images.length %>
+                <%= image_tag(post.images[i], width: 200, class: "ml-10 mr-10") %>
+              <% end %>
+              </div>
+            <% end %>
         </div>
     </div>
 <% end %>
