@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
 
     def same_user_and_profile
-        if !(current_user.profile == @profile.user)
+        if !(current_user.profile == @profile)
             redirect_to root_path, alert: "You're not allowed to edit this profile"
         end
     end
