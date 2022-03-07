@@ -8,4 +8,9 @@ class Profile < ApplicationRecord
   validates :telephone, presence: true
   validates :date_birth, presence: true
   validates :occupation, presence: true
+
+  def self.look_up(user_search)
+    where("first_name like ?", "%#{user_search}%")
+  end
+
 end

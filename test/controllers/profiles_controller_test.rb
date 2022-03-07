@@ -5,11 +5,6 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     @profile = profiles(:one)
   end
 
-  test "should get index" do
-    get profiles_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_profile_url
     assert_response :success
@@ -38,11 +33,4 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to profile_url(@profile)
   end
 
-  test "should destroy profile" do
-    assert_difference("Profile.count", -1) do
-      delete profile_url(@profile)
-    end
-
-    assert_redirected_to profiles_url
-  end
 end

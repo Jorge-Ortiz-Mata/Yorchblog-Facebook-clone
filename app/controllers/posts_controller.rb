@@ -38,7 +38,6 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         format.html { redirect_to root_path }
       else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace(@post, partial: "posts/form", locals: { post: @post })}
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
