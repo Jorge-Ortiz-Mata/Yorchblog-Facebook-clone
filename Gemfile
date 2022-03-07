@@ -11,6 +11,8 @@ gem "sprockets-rails"
 
 gem 'ffi', '~> 1.9', '>= 1.9.10'
 
+gem 'hirb', '~> 0.7.3'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
