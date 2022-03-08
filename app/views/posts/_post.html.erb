@@ -22,16 +22,18 @@
             </div>
         </div>
         <div>
-            <p class="text-sm mt-1 mb-1">
-                <b>Created:</b> <%= time_ago_in_words(post.created_at) %>.
-            </p>
-            <p class="text-sm mt-1 mb-1">
-            <% if !(Like.look_up_like(current_user.id, post.id).present?) %>
-                <%= link_to " Like", like_path(user: current_user.id, post: post.id), class:"far fa-thumbs-up" %>
-            <% else %>
-                <%= link_to " Like", dislike_path(user: current_user.id, post: post.id), class:"fas fa-thumbs-up" %>
-            <% end %>
-            </p>
+            <div class="flex flex-row">
+                <p class="text-sm mt-1 mb-1 ml-0 mr-auto">
+                    <b>Created:</b> <%= time_ago_in_words(post.created_at) %>.
+                </p>
+                <p class="text-sm mt-1 mb-1 mr-0 ml-auto">
+                <% if !(Like.look_up_like(current_user.id, post.id).present?) %>
+                    <%= link_to "", like_path(user: current_user.id, post: post.id), class:"far fa-thumbs-up" %> <%= post.likes.count %> likes.
+                <% else %>
+                    <%= link_to "", dislike_path(user: current_user.id, post: post.id), class:"fas fa-thumbs-up" %> <%= post.likes.count %> likes.
+                <% end %>
+                </p>
+            </div>
             <p class="text-sm font-bold">
                 <%= post.body %>
             </p>
