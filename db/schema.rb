@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_07_190549) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_08_184847) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -56,6 +56,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_190549) do
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_connections_on_friend_id"
     t.index ["user_id"], name: "index_connections_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -105,6 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_190549) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "connections", "users"
   add_foreign_key "connections", "users", column: "friend_id"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
 end

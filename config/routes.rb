@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  # Connections routes
+  # Likes routes.
+  get 'like', to: "likes#create"
+  get 'dislike', to: "likes#destroy"
+
+  # Connections routes.
   resources :connections
   get 'add/friend', to: "connections#create"
   get 'remove/friend', to: "connections#destroy"

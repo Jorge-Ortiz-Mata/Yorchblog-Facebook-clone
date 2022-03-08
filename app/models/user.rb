@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :connections, dependent: :destroy
   has_many :friends, through: :connections, dependent: :destroy
+  has_many :likes, dependent: :destroy
   validates :email, uniqueness: true
 end
