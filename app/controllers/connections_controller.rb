@@ -7,13 +7,14 @@ class ConnectionsController < ApplicationController
         first_connection = Connection.new(user_id: @user, friend_id: @friend)
         second_connection = Connection.new(user_id: @friend, friend_id: @user)
         if first_connection.save && second_connection.save
-            redirect_to request.referrer, notice: "You clicked in create friends, friend: #{@friend}, user: #{@user}, profile: #{@profile}"
+            redirect_to request.referrer # notice: "You clicked in create friends, friend: #{@friend}, user: #{@user}, profile: #{@profile}"
         end
         
     end
 
     def destroy
-        # redirect_to root_path, alert: "You clicked in delete friends, friend: #{@friend}, user: #{@user}."
+        Connection.delete_connections(@user, @friend)
+        redirect_to request.referrer # alert: "You clicked in delete friends, friend: #{@friend}, user: #{@user}."
     end
 
     private
