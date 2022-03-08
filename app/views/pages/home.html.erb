@@ -38,7 +38,7 @@
     <div class="w-6/12 flex flex-col">
         <div class="bg-gray-50 mt-5 mb-5 p-5 rounded-lg shadow-lg">
             <h3 class="font-medium text-cyan-900 text-2xl text-center">What are you thinking?</h3>
-            <%= turbo_frame_tag "post_form" do %>
+            <%= turbo_frame_tag "form" do %>
                 <%= render "posts/form", post: @post %>
             <% end %>
         </div>
@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <div class="ml-0 mr-0 w-3/12 p-5">
+    <div class="w-3/12 ml-0 mr-0 p-5">
        <h3 class="font-medium text-cyan-900 text-2xl text-center">Users.</h3><br>
        <% @profiles.each do |profile| %>
             <div class="flex flex-row p-2 rounded-lg bg-cyan-50 shadow-lg">

@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  # Connections routes
+  resources :connections
+  get 'add/friend', to: "connections#create"
+  get 'remove/friend', to: "connections#destroy"
+
   # Search routes.
   get 'result', to: 'searches#result'
   get 'search', to: 'searches#search_user'
 
-  # Posts routes.
+  # Post routes.
   resources :posts, except: [:index]
 
   # Profile routes.

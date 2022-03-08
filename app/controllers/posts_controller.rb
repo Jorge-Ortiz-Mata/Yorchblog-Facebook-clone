@@ -1,16 +1,11 @@
 class PostsController < ApplicationController
+  
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :require_user
   before_action :user_doesnt_have_profile
 
-
   # GET /posts/1 or /posts/1.json
   def show
-  end
-
-  # GET /posts/new
-  def new
-    @post = Post.new
   end
 
   # GET /posts/1/edit
@@ -24,7 +19,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to root_path }
+        format.html { redirect_to root_path, notice: "Post created successfully" }
       else
         format.turbo_stream { render turbo_stream: turbo_stream.replace(@post, partial: "posts/form", locals: { post: @post })}
         format.html { render :new, status: :unprocessable_entity }

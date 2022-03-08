@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
   has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_many :connections
-  has_many :friends, through: :connections
+  has_many :connections, dependent: :destroy
+  has_many :friends, through: :connections, dependent: :destroy
   validates :email, uniqueness: true
 end
