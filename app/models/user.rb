@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :connections, dependent: :destroy
   has_many :friends, through: :connections, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   validates :email, uniqueness: true
 end

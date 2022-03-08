@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   before_action :user_doesnt_have_profile
 
   def show
+    @post_comments = @post.comments.order('created_at DESC')
   end
 
   # GET /posts/1/edit

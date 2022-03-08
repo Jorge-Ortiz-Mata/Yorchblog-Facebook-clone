@@ -27,10 +27,11 @@
                     <b>Created:</b> <%= time_ago_in_words(post.created_at) %>.
                 </p>
                 <p class="text-sm mt-1 mb-1 mr-0 ml-auto">
+                <i class="far fa-comment"></i> <%= post.comments.count %>
                 <% if !(Like.look_up_like(current_user.id, post.id).present?) %>
-                    <%= link_to "", like_path(user: current_user.id, post: post.id), class:"far fa-thumbs-up" %> <%= post.likes.count %> likes.
+                    <%= link_to "", like_path(user: current_user.id, post: post.id), class:"far fa-thumbs-up" %> <%= post.likes.count %>
                 <% else %>
-                    <%= link_to "", dislike_path(user: current_user.id, post: post.id), class:"fas fa-thumbs-up" %> <%= post.likes.count %> likes.
+                    <%= link_to "", dislike_path(user: current_user.id, post: post.id), class:"fas fa-thumbs-up" %> <%= post.likes.count %>
                 <% end %>
                 </p>
             </div>
