@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'search', to: 'searches#search_user'
 
   # Post routes.
-  resources :posts, except: [:index]
+  resources :posts
 
   # Profile routes.
   resources :profiles, except: [:index, :destroy]

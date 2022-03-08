@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
 
+  before_action :user_doesnt_have_profile
+
   def search_user
     @user_search = params[:result]
     if @user_search.present?

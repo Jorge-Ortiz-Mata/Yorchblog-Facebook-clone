@@ -1,3 +1,4 @@
+<%#= turbo_stream_from "posts" %>
 <div class="flex flex-row justify-center">
     <div class="ml-0 mr-0 w-3/12 p-10">        
         <div class="pt-4 pb-2 px-6">
@@ -37,11 +38,15 @@
     <div class="w-6/12 flex flex-col">
         <div class="bg-gray-50 mt-5 mb-5 p-5 rounded-lg shadow-lg">
             <h3 class="font-medium text-cyan-900 text-2xl text-center">What are you thinking?</h3>
-                <%= render "posts/form", post: @post %>
+                <%#= turbo_frame_tag "post_form" do %>
+                    <%= render "posts/form", post: @post %>
+                <%# end %>
         </div>
         <div>
             <div class="flex flex-col">
-                <%= render @posts %>
+                <%#= turbo_frame_tag "posts" do %>
+                    <%= render @posts %>
+                <%# end %>
             </div>
         </div>
     </div>

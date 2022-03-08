@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
   
-  before_action :set_post, only: %i[ edit update destroy ]
+  before_action :set_post, only: %i[ show edit update destroy ]
   before_action :require_user
   before_action :user_doesnt_have_profile
+
+  def show
+  end
 
   # GET /posts/1/edit
   def edit

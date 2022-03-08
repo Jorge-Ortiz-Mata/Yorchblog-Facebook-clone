@@ -1,6 +1,7 @@
 class ConnectionsController < ApplicationController
 
     before_action :require_user
+    before_action :user_doesnt_have_profile
     before_action :user_profile_and_friend_profile, only: [:create, :destroy]
     
     def create
