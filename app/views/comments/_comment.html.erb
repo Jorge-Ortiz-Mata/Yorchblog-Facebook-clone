@@ -1,3 +1,18 @@
-<div>
-    <%= comment.body %> <%= link_to 'Delete.', uncomment_path(comment: comment.id, post: comment.post) %>
+<div class="flex flex-row p-2">
+    <div class="mt-auto mb-auto ml-0 mr-5">
+        <%= image_tag(comment.user.profile.avatar, width: 30, class:"rounded-full  m-auto") if comment.user.profile.avatar.attached? %>
+        <% if !comment.user.profile.avatar.attached? %>
+            <img src="<%= asset_path( 'image-blank.png' ) %>" width= "30px" class="rounded-full  m-auto" />
+        <% end %>
+    </div>
+    <div class="text-sm">
+        <%= link_to "#{comment.user.profile.first_name} #{comment.user.profile.last_name}", profile_path(comment.user.profile), target: :_blank, class:"font-bold" %><br>
+        <%= comment.body %><br>
+        <% if request.path == post_path(comment.post) %>
+            <% if current_user == comment.user %>
+                <%= link_to 'Delete comment.', uncomment_path(comment: comment.id, post: comment.post), class:"text-red-600 text-xs" %><br>
+            <% end %>
+        <% end %>
+        <span class="text-xs"><b>Created:</b> <%= time_ago_in_words(comment.created_at) %>.</span>
+    </div>
 </div>

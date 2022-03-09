@@ -1,6 +1,6 @@
 <%= form_with model: [@post, @post.comments.build] do |form| %>
-    <div>
-        <%= form.text_field :body %>
-        <%= form.submit %>
+    <div class="flex flex-row">
+        <%= form.text_field :body, class:"form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" %>
+        <%= form.submit  class:"text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800 text-m text-center p-2 rounded" %>
     </div>
 <% end %>
