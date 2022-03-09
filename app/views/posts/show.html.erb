@@ -1,11 +1,16 @@
 <div class="mt-10 pr-32 pl-32">
-    <%= render @post %>
+    <div>
+        <%= render @post %>
+    </div>
 
-    <% for i in 0...@post_comments.length %>
     <br>
-        <p>
-            <%= @post_comments[i].body %>
-        </p>
-    <br>
-    <% end %>
+
+    <div>
+        <h3>Add a new comment.</h3>
+    </div>
+    <div>
+        <div>
+            <%= render 'comments/form' %>
+        </div>
+    </div>
 </div>

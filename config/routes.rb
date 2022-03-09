@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # Comments routes.
+  get 'uncomment', to: 'comments#destroy'
+  
   # Likes routes.
   get 'like', to: "likes#create"
   get 'dislike', to: "likes#destroy"
@@ -14,7 +17,9 @@ Rails.application.routes.draw do
   get 'search', to: 'searches#search_user'
 
   # Post routes.
-  resources :posts
+  resources :posts do
+    resources :comments, except: [:index]
+  end
 
   # Profile routes.
   resources :profiles, except: [:index, :destroy]
